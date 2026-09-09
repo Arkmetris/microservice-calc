@@ -27,6 +27,10 @@ Para executá-lo, basta baixar a pasta do projeto (microserviços) e executar o 
 sudo docker-compose up --build -d --scale ping=2
 ```
 
+```
+sudo docker compose up --build -d --scale ping=2
+```
+
 ![image](https://user-images.githubusercontent.com/276077/116919459-ab259100-ac27-11eb-8edb-5bd0f81f701e.png)
 
 O comando cria, inicia e anexa containers em um serviço. O parâmetro --build força a construção da imagem antes da criação do serviço, o parâmetro -d faz com que os containers sejam executados em background, e por fim, o --scale informa a quantidade de containers de um determinado serviço, sobrescrevendo o valor informado no compose-file.
