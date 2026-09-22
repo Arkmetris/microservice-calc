@@ -1,25 +1,36 @@
-version: '3.7'
 services:
+  ping:
+    build: ping
 
-    ping:
-        build: ping
+  calc:
+    build: calc
 
-    calc:
-        build: calc
+  soma:
+    build: soma
 
-    soma:
-        build: soma
+  sub:
+    build: sub
 
-    sub:
-        build: sub
+  # 3 distinct instances allowing individual Nginx rules
+  mult1:
+    build: mult
 
-    nginx:
-        container_name: nginx
-        build: nginx
-        ports:
-            - 8080:80
-        depends_on:
-           - ping
-           - calc
-           - soma
-           - sub
+  mult2:
+    build: mult
+
+  mult3:
+    build: mult
+
+  nginx:
+    container_name: nginx
+    build: nginx
+    ports:
+      - 8080:80
+    depends_on:
+      - ping
+      - calc
+      - soma
+      - sub
+      - mult1
+      - mult2
+      - mult3
